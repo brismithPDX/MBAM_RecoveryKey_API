@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MBAM_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetVersion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareCore" />
+        <Function Name="GetExemptionStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="Model" Type="nvarchar" Mode="In" />
+          <Parameter Name="Manufacturer" Type="nvarchar" Mode="In" />
+          <Parameter Name="TpmMake" Type="nvarchar" Mode="In" />
+          <Parameter Name="TpmVersion" Type="nvarchar" Mode="In" />
+          <Parameter Name="BiosMake" Type="nvarchar" Mode="In" />
+          <Parameter Name="BiosVersion" Type="nvarchar" Mode="In" />
+          <Parameter Name="ExemptionId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="GetMachineTypeFromId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="MachineTypeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetMachineTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="Model" Type="nvarchar" Mode="In" />
+          <Parameter Name="Manufacturer" Type="nvarchar" Mode="In" />
+          <Parameter Name="TpmMake" Type="nvarchar" Mode="In" />
+          <Parameter Name="TpmVersion" Type="nvarchar" Mode="In" />
+          <Parameter Name="BiosMake" Type="nvarchar" Mode="In" />
+          <Parameter Name="BiosVersion" Type="nvarchar" Mode="In" />
+          <Parameter Name="ExemptionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetMachineUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="MachineName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MachineDomainName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecoveryKey" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="RecoveryKeyId" Type="varchar" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecoveryKeyForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="RecoveryKeyId" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserDomainName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecoveryKeyIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="PartialRecoveryKeyId" Type="varchar" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecoveryKeyIdsForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="PartialRecoveryKeyId" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserDomainName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetResetRequired" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="VolumeGuid" Type="char" Mode="In" />
+          <Parameter Name="RequireReset" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="GetTpm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="MachineName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MachineDomainName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetTpmForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="MachineName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MachineDomainName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserDomainName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetTpmForUserByKeyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="RecoveryKeyId" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserDomainName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetVolumeTypeId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="VolumeGuid" Type="char" Mode="In" />
+          <Parameter Name="VolumeTypeId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="GetVolumeUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RecoveryAndHardwareRead">
+          <Parameter Name="VolumeGuid" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="MBAM_DBModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MBAM_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MBAM_Recovery_and_HardwareEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetVersion" />
+          <FunctionImport Name="GetExemptionStatus">
+            <Parameter Name="Model" Mode="In" Type="String" />
+            <Parameter Name="Manufacturer" Mode="In" Type="String" />
+            <Parameter Name="TpmMake" Mode="In" Type="String" />
+            <Parameter Name="TpmVersion" Mode="In" Type="String" />
+            <Parameter Name="BiosMake" Mode="In" Type="String" />
+            <Parameter Name="BiosVersion" Mode="In" Type="String" />
+            <Parameter Name="ExemptionId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetMachineTypeFromId" ReturnType="Collection(MBAM_DBModel.GetMachineTypeFromId_Result)">
+            <Parameter Name="MachineTypeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetMachineTypes" ReturnType="Collection(MBAM_DBModel.GetMachineTypes_Result)">
+            <Parameter Name="Model" Mode="In" Type="String" />
+            <Parameter Name="Manufacturer" Mode="In" Type="String" />
+            <Parameter Name="TpmMake" Mode="In" Type="String" />
+            <Parameter Name="TpmVersion" Mode="In" Type="String" />
+            <Parameter Name="BiosMake" Mode="In" Type="String" />
+            <Parameter Name="BiosVersion" Mode="In" Type="String" />
+            <Parameter Name="ExemptionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetMachineUsers" ReturnType="Collection(MBAM_DBModel.GetMachineUsers_Result)">
+            <Parameter Name="MachineName" Mode="In" Type="String" />
+            <Parameter Name="MachineDomainName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecoveryKey" ReturnType="Collection(MBAM_DBModel.GetRecoveryKey_Result)">
+            <Parameter Name="RecoveryKeyId" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecoveryKeyForUser" ReturnType="Collection(MBAM_DBModel.GetRecoveryKeyForUser_Result)">
+            <Parameter Name="RecoveryKeyId" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserDomainName" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecoveryKeyIds" ReturnType="Collection(String)">
+            <Parameter Name="PartialRecoveryKeyId" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecoveryKeyIdsForUser" ReturnType="Collection(String)">
+            <Parameter Name="PartialRecoveryKeyId" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserDomainName" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetResetRequired">
+            <Parameter Name="VolumeGuid" Mode="In" Type="String" />
+            <Parameter Name="RequireReset" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="GetTpm" ReturnType="Collection(MBAM_DBModel.GetTpm_Result)">
+            <Parameter Name="MachineName" Mode="In" Type="String" />
+            <Parameter Name="MachineDomainName" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetTpmForUser" ReturnType="Collection(MBAM_DBModel.GetTpmForUser_Result)">
+            <Parameter Name="MachineName" Mode="In" Type="String" />
+            <Parameter Name="MachineDomainName" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserDomainName" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetTpmForUserByKeyId" ReturnType="Collection(MBAM_DBModel.GetTpmForUserByKeyId_Result)">
+            <Parameter Name="RecoveryKeyId" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserDomainName" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetVolumeTypeId">
+            <Parameter Name="VolumeGuid" Mode="In" Type="String" />
+            <Parameter Name="VolumeTypeId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetVolumeUsers" ReturnType="Collection(MBAM_DBModel.GetVolumeUsers_Result)">
+            <Parameter Name="VolumeGuid" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetMachineTypeFromId_Result">
+          <Property Type="String" Name="MachineModel" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Manufacturer" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="BiosMake" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="BiosVersion" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="TpmMake" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TpmVersion" Nullable="false" MaxLength="256" />
+          <Property Type="Byte" Name="ExemptionStatusId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetMachineTypes_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="MachineModel" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Manufacturer" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="BiosMake" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="BiosVersion" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="TpmMake" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TpmVersion" Nullable="false" MaxLength="256" />
+          <Property Type="Byte" Name="ExemptionStatusId" Nullable="false" />
+          <Property Type="Binary" Name="InternalHash" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="GetMachineUsers_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="DomainName" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetRecoveryKey_Result">
+          <Property Type="String" Name="RecoveryKeyId" Nullable="false" MaxLength="36" />
+          <Property Type="String" Name="RecoveryKey" Nullable="false" MaxLength="55" />
+          <Property Type="Binary" Name="BitLockerRecoveryKeyPackage" Nullable="true" MaxLength="7000" />
+          <Property Type="Binary" Name="DeprecatedRecoveryKeyPackage" Nullable="true" MaxLength="7000" />
+          <Property Type="DateTime" Name="LastUpdateTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="VolumeGuid" Nullable="false" MaxLength="36" />
+          <Property Type="String" Name="MachineName" Nullable="true" MaxLength="63" />
+          <Property Type="String" Name="MachineDomainName" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetRecoveryKeyForUser_Result">
+          <Property Type="String" Name="RecoveryKeyId" Nullable="false" MaxLength="36" />
+          <Property Type="String" Name="RecoveryKey" Nullable="false" MaxLength="55" />
+          <Property Type="Binary" Name="BitLockerRecoveryKeyPackage" Nullable="true" MaxLength="7000" />
+          <Property Type="Binary" Name="DeprecatedRecoveryKeyPackage" Nullable="true" MaxLength="7000" />
+          <Property Type="DateTime" Name="LastUpdateTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="VolumeGuid" Nullable="false" MaxLength="36" />
+          <Property Type="String" Name="MachineName" Nullable="true" MaxLength="63" />
+          <Property Type="String" Name="MachineDomainName" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetTpm_Result">
+          <Property Type="String" Name="TpmPasswordHash" Nullable="true" MaxLength="28" />
+          <Property Type="DateTime" Name="LastUpdateTime" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetTpmForUser_Result">
+          <Property Type="String" Name="TpmPasswordHash" Nullable="true" MaxLength="28" />
+          <Property Type="DateTime" Name="LastUpdateTime" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetTpmForUserByKeyId_Result">
+          <Property Type="String" Name="MachineName" Nullable="true" MaxLength="63" />
+          <Property Type="String" Name="MachineDomainName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="TpmPasswordHash" Nullable="true" MaxLength="28" />
+          <Property Type="DateTime" Name="LastUpdateTime" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetVolumeUsers_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="DomainName" Nullable="false" MaxLength="255" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MBAM_DBModelStoreContainer" CdmEntityContainer="MBAM_Recovery_and_HardwareEntities" >
+          <FunctionImportMapping FunctionImportName="GetVersion" FunctionName="MBAM_DBModel.Store.GetVersion" />
+          <FunctionImportMapping FunctionImportName="GetExemptionStatus" FunctionName="MBAM_DBModel.Store.GetExemptionStatus" />
+          <FunctionImportMapping FunctionImportName="GetMachineTypeFromId" FunctionName="MBAM_DBModel.Store.GetMachineTypeFromId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetMachineTypeFromId_Result">
+                <ScalarProperty Name="MachineModel" ColumnName="MachineModel" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="BiosMake" ColumnName="BiosMake" />
+                <ScalarProperty Name="BiosVersion" ColumnName="BiosVersion" />
+                <ScalarProperty Name="TpmMake" ColumnName="TpmMake" />
+                <ScalarProperty Name="TpmVersion" ColumnName="TpmVersion" />
+                <ScalarProperty Name="ExemptionStatusId" ColumnName="ExemptionStatusId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMachineTypes" FunctionName="MBAM_DBModel.Store.GetMachineTypes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetMachineTypes_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MachineModel" ColumnName="MachineModel" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="BiosMake" ColumnName="BiosMake" />
+                <ScalarProperty Name="BiosVersion" ColumnName="BiosVersion" />
+                <ScalarProperty Name="TpmMake" ColumnName="TpmMake" />
+                <ScalarProperty Name="TpmVersion" ColumnName="TpmVersion" />
+                <ScalarProperty Name="ExemptionStatusId" ColumnName="ExemptionStatusId" />
+                <ScalarProperty Name="InternalHash" ColumnName="InternalHash" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMachineUsers" FunctionName="MBAM_DBModel.Store.GetMachineUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetMachineUsers_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRecoveryKey" FunctionName="MBAM_DBModel.Store.GetRecoveryKey">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetRecoveryKey_Result">
+                <ScalarProperty Name="RecoveryKeyId" ColumnName="RecoveryKeyId" />
+                <ScalarProperty Name="RecoveryKey" ColumnName="RecoveryKey" />
+                <ScalarProperty Name="BitLockerRecoveryKeyPackage" ColumnName="BitLockerRecoveryKeyPackage" />
+                <ScalarProperty Name="DeprecatedRecoveryKeyPackage" ColumnName="DeprecatedRecoveryKeyPackage" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="VolumeGuid" ColumnName="VolumeGuid" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="MachineDomainName" ColumnName="MachineDomainName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRecoveryKeyForUser" FunctionName="MBAM_DBModel.Store.GetRecoveryKeyForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetRecoveryKeyForUser_Result">
+                <ScalarProperty Name="RecoveryKeyId" ColumnName="RecoveryKeyId" />
+                <ScalarProperty Name="RecoveryKey" ColumnName="RecoveryKey" />
+                <ScalarProperty Name="BitLockerRecoveryKeyPackage" ColumnName="BitLockerRecoveryKeyPackage" />
+                <ScalarProperty Name="DeprecatedRecoveryKeyPackage" ColumnName="DeprecatedRecoveryKeyPackage" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="VolumeGuid" ColumnName="VolumeGuid" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="MachineDomainName" ColumnName="MachineDomainName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRecoveryKeyIds" FunctionName="MBAM_DBModel.Store.GetRecoveryKeyIds" />
+          <FunctionImportMapping FunctionImportName="GetRecoveryKeyIdsForUser" FunctionName="MBAM_DBModel.Store.GetRecoveryKeyIdsForUser" />
+          <FunctionImportMapping FunctionImportName="GetResetRequired" FunctionName="MBAM_DBModel.Store.GetResetRequired" />
+          <FunctionImportMapping FunctionImportName="GetTpm" FunctionName="MBAM_DBModel.Store.GetTpm">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetTpm_Result">
+                <ScalarProperty Name="TpmPasswordHash" ColumnName="TpmPasswordHash" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTpmForUser" FunctionName="MBAM_DBModel.Store.GetTpmForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetTpmForUser_Result">
+                <ScalarProperty Name="TpmPasswordHash" ColumnName="TpmPasswordHash" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTpmForUserByKeyId" FunctionName="MBAM_DBModel.Store.GetTpmForUserByKeyId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetTpmForUserByKeyId_Result">
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="MachineDomainName" ColumnName="MachineDomainName" />
+                <ScalarProperty Name="TpmPasswordHash" ColumnName="TpmPasswordHash" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetVolumeTypeId" FunctionName="MBAM_DBModel.Store.GetVolumeTypeId" />
+          <FunctionImportMapping FunctionImportName="GetVolumeUsers" FunctionName="MBAM_DBModel.Store.GetVolumeUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MBAM_DBModel.GetVolumeUsers_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

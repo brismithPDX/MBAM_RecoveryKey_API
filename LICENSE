@@ -1,13 +1,18 @@
-MIT License
+RESTRICTED Production Code Sample Licence
 
 Copyright (c) 2017 brismithPDX
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of this software and associated documentation files (the "Software"), to review
+the Software for the purposes of evaluating brismithPDX coding habits and 
+Production quality (the "Portfolio"). This code may be encumbered by other
+copyright holders, previous employer ownership clauses, or other restrictions.
+
+ 
+subject to the following conditions:
+
+Code provided in the Portfolio may not be included in any other projects or 
+software under this Licence.
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
